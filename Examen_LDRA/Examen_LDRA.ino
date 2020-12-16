@@ -3,7 +3,8 @@ int vldr=0;
 int B=11;
 int G=10;
 int R=9;
-
+int agua=A0;
+int vagua=0;
 
 void setup(){
   Serial.begin(9600);
@@ -13,8 +14,15 @@ void setup(){
   }
 
 void loop(){
+vagua=analogRead(agua);
+int vamp=map(vagua,0,600,0,10);
+Serial.print("Nivel De Agua ");
+Serial.println(vagua);
+Serial.print("Valor Mapeado ");
+Serial.println(vamp);
+  
 vldr=analogRead(ldr);
-Serial.print("Valor LDR :");
+Serial.print("Valor LDR : ");
 Serial.println(vldr);
 delay(500);
 int vmldr=map(vldr, 26,700,0,10);
